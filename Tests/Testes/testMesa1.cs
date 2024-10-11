@@ -10,9 +10,9 @@ public class tMesa1 {
 
             for (int i = 0; i < 4; i++){
                 if(v[i] == 5){
-                    Console.WriteLine($"O vetor na posição V[i] é == 5");
+                    Console.WriteLine($"O vetor na posição {i} é = 5");
                 } else{
-                    Console.WriteLine($"O vetor na posição V[i] não é == 5");
+                    Console.WriteLine($"O vetor na posição {i} não é = 5");
              }
          }
     }

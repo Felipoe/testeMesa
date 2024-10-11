@@ -10,7 +10,7 @@ public class tMesa2 {
         
         v = Math.Pow(valorTaxa, periodoMes);
         f = valorPresente * v;
-        Console.WriteLine("Valor futuro: " + f);
+        Console.WriteLine($"Valor futuro: {f:F2}");
     }
 
     public static void dois(){
@@ -23,7 +23,7 @@ public class tMesa2 {
         for (int i = 1; i <= periodoMes ; i++){
             f = valorPresente * Math.Pow(valorTaxa, periodoMes);
             valoresMeses[i] = f;
-            Console.WriteLine ("Rendimento no " +i+ "º mês= "+valoresMeses[i]);
+            Console.WriteLine ($"Rendimento no {i}º mês= {valoresMeses[i]:F2}");
         }
     }
 
@@ -41,7 +41,7 @@ public class tMesa2 {
         
 
         valorFinal = valorPresente * Math.Pow(valorTaxa, periodoMes);
-        Console.WriteLine("Valor do rendimento: " + valorFinal);
+        Console.WriteLine($"Valor do rendimento: {valorFinal:F2}");
     }
 
     public static void quatro(){
@@ -52,25 +52,36 @@ public class tMesa2 {
         double[] valoresMeses = new double[6];
         double valorTaxa = 1 + taxaJuros;
 
+        Console.WriteLine("Digite o valor presente: ");
+        valorPresente = double.Parse(Console.ReadLine() ?? "0");
+        Console.WriteLine("Digite a taxa de juros (em decimal): ");
+        taxaJuros = double.Parse(Console.ReadLine() ?? "0");
+        Console.WriteLine("Digeite o periodo: ");
+        valorTaxa = taxaJuros + 1;
+
         for(int i = 1 ; i <= 6 ; i++){
             valoresMeses[i] = Math.Pow(valorTaxa, i);
             if(i == 5){
                 valorFinal = valorPresente * valoresMeses[i];
                 valorFinal = valorFinal - saque;
-                Console.WriteLine("Valor em " + i + " meses após saque:" + valorFinal);
+                Console.WriteLine($"Valor no {i}º mes após saque: {valorFinal:F2}");
             } else {
                 valorFinal = valorPresente * valoresMeses[i];
-                Console.WriteLine("Valor após" + i + "meses:" + valorFinal);
+                Console.WriteLine($"Valor após {i}º mes: {valorFinal:F2}");
             }
         }
     }
 
     public static void cinco(){
-        double valorPresente, taxaJuros = 0.0125, valorFinal = 7390.61;
-        int periodoMes = 24;
-        double valorTaxa = 1 + taxaJuros;
+        double valorPresente, valorTaxa, valorFinal = 7390.61;
+        
+        Console.WriteLine("Digite a taxa de juros (em decimal): ");
+        double taxaJuros = double.Parse(Console.ReadLine() ?? "0");
+        Console.WriteLine("Digeite o periodo (em meses): ");
+        int periodoMes = int.Parse(Console.ReadLine() ?? "0");
+        valorTaxa = taxaJuros + 1;
         
         valorPresente = valorFinal / Math.Pow(valorTaxa, periodoMes);
-        Console.WriteLine("O valor inicial investido: " + valorPresente);
+        Console.WriteLine($"O valor inicial investido: {valorPresente:F2}");
     }
 }

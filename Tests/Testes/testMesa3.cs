@@ -4,13 +4,15 @@ namespace calculadoraInvestimentos{
     class tMesa3(){
         public static void um(){
             int mes = 8, dia = 10;
+            
    
             Console.Write("Digite o valor presente: ");
             double valorPresente = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Digite a taxa de juros: ");
-            double taxaJuros = (Convert.ToDouble(Console.ReadLine())/100);
+            Console.Write("Digite a taxa de juros (em decimal): ");
+            double taxaJuros = (Convert.ToDouble(Console.ReadLine()));
             double meses = mes + (dia/30.0);
-            double rendimento = valorPresente * Math.Pow(1+taxaJuros, meses);
+            double valorTaxa = taxaJuros + 1;
+            double rendimento = valorPresente * Math.Pow(valorTaxa, meses);
             Console.WriteLine($"O rendimento após {mes} meses e {dia} dias será de {rendimento:C2}");
         }
     }
@@ -19,11 +21,11 @@ namespace calculadoraInvestimentos{
             double valorPresente, taxaJuros, resgate;
             int periodoMes;
 
-            Console.WriteLine("Investimento com resgate de rendimentos");
+            Console.WriteLine("Investimento com resgate");
             Console.Write("Digite o valor presente: ");
             valorPresente = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Digite a taxa de juros: ");
-            taxaJuros = (Convert.ToDouble(Console.ReadLine())/100);
+            Console.Write("Digite a taxa de juros (em decimal): ");
+            taxaJuros = (Convert.ToDouble(Console.ReadLine()));
             Console.Write("Digite o periodo de investimento: ");
             periodoMes = Convert.ToInt32(Console.ReadLine());
             Console.Write("Digite o valor de resgate: ");
@@ -52,9 +54,9 @@ namespace calculadoraInvestimentos{
             Console.WriteLine("Investimento com resgate de rendimentos");
             Console.Write("Digite o valor presente: ");
             double valorPresente = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Digite a taxa de juros (em %): ");
-            double taxaJuros = Convert.ToDouble(Console.ReadLine()) / 100;
-            Console.Write("Digite o período de investimento (em meses): ");
+            Console.Write("Digite a taxa de juros (em decimal): ");
+            double taxaJuros = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Digite o período de investimento: ");
             int periodoMeses = Convert.ToInt32(Console.ReadLine());
             Console.Write("Digite o valor de resgate: ");
             double resgate = Convert.ToDouble(Console.ReadLine());
